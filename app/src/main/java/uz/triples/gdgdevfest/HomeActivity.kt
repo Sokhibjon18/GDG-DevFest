@@ -2,7 +2,7 @@ package uz.triples.gdgdevfest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import uz.triples.gdgdevfest.ui.main.HomeFragment
+import uz.triples.gdgdevfest.ui.HomeFragment
 
 class HomeActivity : AppCompatActivity() {
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="uz.triples.gdgdevfest.ui.main.HomeFragment"
+        android:name="uz.triples.gdgdevfest.ui.HomeFragment"
         android:label="main_fragment"
         tools:layout="@layout/fragment_main" >
         <action
