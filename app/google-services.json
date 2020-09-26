@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "882770264106",
+    "firebase_url": "https://gdg-devfest-29414.firebaseio.com",
+    "project_id": "gdg-devfest-29414",
+    "storage_bucket": "gdg-devfest-29414.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882770264106:android:a9024e8321117b5f348353",
+        "android_client_info": {
+          "package_name": "uz.triples.gdgdevfest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882770264106-s96n4fbh3ne2lstue776kucc7hlksirp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCQDlocVl7-TPWULzzJMWRbdbT0Fen0zk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882770264106-s96n4fbh3ne2lstue776kucc7hlksirp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
