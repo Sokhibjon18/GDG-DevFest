@@ -12,5 +12,9 @@ class HomeFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        agendaCardView.setOnClickListener {
+            findNavController().navigate(R.id.agendaFragment)
+        }
     }
 }

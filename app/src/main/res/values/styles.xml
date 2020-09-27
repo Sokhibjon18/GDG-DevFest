@@ -8,5 +8,18 @@
         <item name="cardBackgroundColor">@color/colorCardBackgroundLight</item>
         <item name="fontFamily">@font/nunito_sans</item>
         <item name="android:textAllCaps">false</item>
+        <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
+    </style>
+    
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/nunito_sans</item>
+        <item name="android:fontFamily">@font/nunito_sans</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

@@ -13,6 +13,6 @@ interface SessionsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertSessions(sessions: Sessions)
 
-    @Query("SELECT * From sessions")
-    fun getAllAgenda(): LiveData<List<Sessions>>
+    @Query("SELECT * From sessions where session = :session")
+    fun getSession(session: Int): Sessions
 }

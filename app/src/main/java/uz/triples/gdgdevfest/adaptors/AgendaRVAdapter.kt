@@ -6,32 +6,37 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.agenda_rv_item.view.*
+import kotlinx.android.synthetic.main.rv_item_agenda.view.*
 import uz.triples.gdgdevfest.R
-import uz.triples.gdgdevfest.gdgJSON.JsonMember20160909
-import uz.triples.gdgdevfest.gdgJSON.Schedule
-import uz.triples.gdgdevfest.gdgJSON.TimeslotsItem
+import uz.triples.gdgdevfest.models.AgendaItemModel
 
-class AgendaRVAdapter(): ListAdapter<TimeslotsItem, AgendaRVAdapter.ViewHolder>(DiffCallBack()) {
+class AgendaRVAdapter(): ListAdapter<AgendaItemModel, AgendaRVAdapter.ViewHolder>(DiffCallBack()) {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    class DiffCallBack() : DiffUtil.ItemCallback<TimeslotsItem>() {
-        override fun areItemsTheSame(oldItem: TimeslotsItem, newItem: TimeslotsItem): Boolean {
+    class DiffCallBack() : DiffUtil.ItemCallback<AgendaItemModel>() {
+        override fun areItemsTheSame(oldItem: AgendaItemModel, newItem: AgendaItemModel): Boolean {
             return true
         }
 
-        override fun areContentsTheSame(oldItem: TimeslotsItem, newItem: TimeslotsItem): Boolean {
-            return oldItem.sessions.size == newItem.sessions.size
+        override fun areContentsTheSame(oldItem: AgendaItemModel, newItem: AgendaItemModel): Boolean {
+            return oldItem.title == newItem.title
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.agenda_rv_item, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rv_item_agenda, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = holder.itemView
-        item.text.text = "$position"
+        val view = holder.itemView
+        val item = getItem(position)
+        if (item.speakers.isNotEmpty()) {
+            view.titleAgendaItem.text = item.title
+            view.nameAgendaItem.text = item.speakers[0]
+            view.dateAgendaItem.text = item.date
+            view.startTimeAgendaItem.text = item.startTime
+            view.endTimeAgendaItem.text = item.endTime
+        }
     }
 }

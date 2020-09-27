@@ -1,14 +1,17 @@
-package uz.triples.gdgdevfest.database.entities
+package uz.triples.gdgdevfest.models
 
-class SessionsModel(
+import java.io.Serializable
+
+class AgendaItemModel(
+    val startTime: String?,
+    val endTime: String?,
+    val date: String?,
     val complexity: String?,
     val description: String?,
     val language: String?,
     val presentation: String?,
     val speakers: List<String>,
-    val tags: String,
     val title: String?,
     val image: String?
-) {
-
+) : Serializable {
 }

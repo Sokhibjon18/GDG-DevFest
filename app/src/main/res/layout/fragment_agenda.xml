@@ -46,6 +46,13 @@
                 android:text="@string/cloud"
                 android:icon="@drawable/ic_google_cloud"/>
 
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/moreTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/more"
+                android:icon="@drawable/ic_coffee"/>
+
         </com.google.android.material.tabs.TabLayout>
 
     </androidx.viewpager.widget.ViewPager>
