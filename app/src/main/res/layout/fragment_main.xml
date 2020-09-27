@@ -6,46 +6,407 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
-    <Button
-        android:id="@+id/agendaBtn"
-        android:layout_width="wrap_content"
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBarHome"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:id="@+id/logoDevFest"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/dev_fest_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="@string/gdg_devfest_ntashkent_2020"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/logoDevFest"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_lamp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/shareBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@drawable/ic_lamp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shareBtn"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_baseline_share_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@drawable/ic_baseline_share_24" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/devFest2020"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginVertical="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBarHome">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dev_fest_2020" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agenda"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-    <Button
-        android:id="@+id/speakersBtn"
-        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/buttonsContainer"
+        app:layout_constraintTop_toBottomOf="@id/devFest2020">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/welcome_to_devfest_2020"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="@string/desc"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonsContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Speakers"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/agendaBtn"/>
-    <Button
-        android:id="@+id/gdgTeamBtn"
-        android:layout_width="wrap_content"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintBottom_toTopOf="@id/linksContainer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/agendaCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp"
+            app:layout_constraintBottom_toTopOf="@id/sponsorsCardView"
+            app:layout_constraintDimensionRatio="h, 1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/speakersCardView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_percent="0.23">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_foregnground"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:paddingTop="6dp"
+                    android:src="@drawable/ic_clipboard"
+                    app:tint="@android:color/holo_red_light" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:text="@string/agenda"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/speakersCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp"
+            app:layout_constraintBottom_toTopOf="@id/FAQCardView"
+            app:layout_constraintDimensionRatio="h, 1:1"
+            app:layout_constraintLeft_toRightOf="@id/agendaCardView"
+            app:layout_constraintRight_toLeftOf="@id/teamCardView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_percent="0.23">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_foregnground"
+                android:backgroundTint="@color/colorGreen"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:paddingTop="6dp"
+                    android:src="@drawable/ic_employee"
+                    app:tint="@color/colorGreen" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:text="@string/speakers"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/teamCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp"
+            app:layout_constraintBottom_toTopOf="@id/locateUsCardView"
+            app:layout_constraintDimensionRatio="h, 1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/speakersCardView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_percent="0.23">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_foregnground"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:paddingTop="4dp"
+                    android:src="@drawable/ic_team"
+                    app:tint="@android:color/holo_orange_dark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:text="@string/team"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sponsorsCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="h, 1:1"
+            app:layout_constraintLeft_toLeftOf="@id/agendaCardView"
+            app:layout_constraintRight_toRightOf="@id/agendaCardView"
+            app:layout_constraintTop_toBottomOf="@id/agendaCardView"
+            app:layout_constraintWidth_percent="0.23">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_foregnground"
+                android:backgroundTint="@android:color/holo_purple"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:paddingTop="6dp"
+                    android:src="@drawable/ic_solution"
+                    app:tint="@android:color/holo_purple" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:text="@string/sponsors"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/FAQCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="h, 1:1"
+            app:layout_constraintLeft_toLeftOf="@id/speakersCardView"
+            app:layout_constraintRight_toRightOf="@id/speakersCardView"
+            app:layout_constraintTop_toBottomOf="@id/speakersCardView"
+            app:layout_constraintWidth_percent="0.23">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_foregnground"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:paddingTop="6dp"
+                    android:src="@drawable/ic_conversation"
+                    app:tint="@android:color/holo_orange_dark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:text="@string/faq"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/locateUsCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="h, 1:1"
+            app:layout_constraintLeft_toLeftOf="@id/teamCardView"
+            app:layout_constraintRight_toRightOf="@id/teamCardView"
+            app:layout_constraintTop_toBottomOf="@id/teamCardView"
+            app:layout_constraintWidth_percent="0.23">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_foregnground"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_location"
+                    app:tint="@android:color/holo_blue_dark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/locate_us"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linksContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Team"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/speakersBtn"/>
-    <Button
-        android:id="@+id/sponsorsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sponsors"
-        app:layout_constraintTop_toBottomOf="@id/agendaBtn"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-    <Button
-        android:id="@+id/faqBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FAQ"
-        app:layout_constraintTop_toBottomOf="@id/agendaBtn"
-        app:layout_constraintLeft_toRightOf="@id/sponsorsBtn"/>
-    <Button
-        android:id="@+id/locateUsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Locate us"
-        app:layout_constraintTop_toBottomOf="@id/agendaBtn"
-        app:layout_constraintLeft_toRightOf="@id/faqBtn"/>
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonsContainer">
+
+        <ImageView
+            android:id="@+id/telegram"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:padding="1dp"
+            android:src="@drawable/ic_telegram" />
+
+        <ImageView
+            android:id="@+id/instagram"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginHorizontal="16dp"
+            android:src="@drawable/ic_instagram" />
+
+        <ImageView
+            android:id="@+id/twitter"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_twitter" />
+
+        <ImageView
+            android:id="@+id/facebook"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginHorizontal="16dp"
+            android:src="@drawable/ic_facebook" />
+
+        <ImageView
+            android:id="@+id/youtube"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_youtube" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

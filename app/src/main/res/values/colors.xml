@@ -3,4 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="colorTabIndicator">#F9A825</color>
+    <color name="colorCardBackgroundLight">#FFFFFF</color>
+    <color name="colorGreen">#2E7D32</color>
 </resources>

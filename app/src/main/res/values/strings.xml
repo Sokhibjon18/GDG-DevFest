@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">GDG DevFest</string>
+    <string name="web">Web &amp; More</string>
+    <string name="android">Android</string>
+    <string name="cloud">Cloud</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gdg_devfest"><b>GDG</b> DevFest</string>
+    <string name="home">Home</string>
+    <string name="gdg_devfest_ntashkent_2020"><b>GDG</b> DevFest\nTashkent 2020</string>
+    <string name="agenda">Agenda</string>
+    <string name="speakers">Speakers</string>
+    <string name="team">Team</string>
+    <string name="sponsors">Sponsors</string>
+    <string name="faq">FAQ</string>
+    <string name="locate_us">Locate Us</string>
+    <string name="welcome_to_devfest_2020">Welcome to DevFest 2020</string>
+    <string name="desc">DevFests are community-led developer events hosted by Google Developer Groups around the globe. GDGs are focused on community building and learning about Google’s technologies.</string>
 </resources>
