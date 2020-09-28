@@ -2,9 +2,7 @@ package uz.triples.gdgdevfest.repositories
 
 import android.app.Application
 import android.os.AsyncTask
-import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.LiveData
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -15,9 +13,11 @@ import kotlinx.coroutines.withContext
 import uz.triples.gdgdevfest.database.GDGTashkentDatabase
 import uz.triples.gdgdevfest.database.dao.AgendaDao
 import uz.triples.gdgdevfest.database.dao.SessionsDao
+import uz.triples.gdgdevfest.database.dao.SpeakersDao
 import uz.triples.gdgdevfest.database.entities.Agenda
 import uz.triples.gdgdevfest.database.entities.Sessions
-import uz.triples.gdgdevfest.database.entities.SessionsModel
+import uz.triples.gdgdevfest.database.entities.Speakers
+import uz.triples.gdgdevfest.models.SessionsModel
 
 class MainRepository(private val application: Application) {
 
@@ -25,7 +25,51 @@ class MainRepository(private val application: Application) {
     private val databaseFireBase = FirebaseDatabase.getInstance().reference
     private val database = GDGTashkentDatabase.getInstance(application)
 
-    fun updateAgenda(){
+    fun updateDatabase() {
+        databaseFireBase.child("speakers").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val speakersList = mutableListOf<Speakers>()
+                for (speaker in snapshot.children) {
+                    val newSpeaker = Speakers(
+                        speaker.key.toString(),
+                        speaker.child("name").value.toString(),
+                        speaker.child("shortBio").value.toString(),
+                        speaker.child("bio").value.toString(),
+                        speaker.child("company").value.toString(),
+                        speaker.child("companyLogoUrl").value.toString(),
+                        speaker.child("country").value.toString(),
+                        speaker.child("photoUrl").value.toString(),
+                        speaker.child("title").value.toString(), null, null, null, null, null
+                    )
+                    for (social in speaker.child("socials").children) {
+                        when (social.child("icon").value.toString()) {
+                            "twitter" -> {
+                                newSpeaker.twitter = social.child("link").value.toString()
+                            }
+                            "facebook" -> {
+                                newSpeaker.facebook = social.child("link").value.toString()
+                            }
+                            "website" -> {
+                                newSpeaker.web = social.child("link").value.toString()
+                            }
+                            "linkedin" -> {
+                                newSpeaker.linkedIn = social.child("link").value.toString()
+                            }
+                            "instagram" -> {
+                                newSpeaker.instagram = social.child("link").value.toString()
+                            }
+                        }
+                    }
+                    speakersList+=newSpeaker
+                }
+                    InsertSpeakers(database!!.speakersDao()).execute(speakersList)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+
         databaseFireBase.child("sessions").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val listOfSessions = mutableListOf<Sessions>()
@@ -66,6 +110,7 @@ class MainRepository(private val application: Application) {
         databaseFireBase.child("schedule").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var date: String?
+                var idHelper = 1
                 for (snapshotDate in snapshot.children) {
                     val listAgenda = mutableListOf<Agenda>()
                     date = snapshotDate.child("dateReadable").value.toString()
@@ -78,9 +123,10 @@ class MainRepository(private val application: Application) {
                                 listSessions += items.value.toString().toInt()
                             }
                         }
+
                         val agenda =
                             Agenda(
-                                "$date $startTime $endTime ${Gson().toJson(listSessions)}",
+                                idHelper*100 + timeSlot.key.toString().toInt(),
                                 date,
                                 endTime,
                                 startTime,
@@ -89,6 +135,7 @@ class MainRepository(private val application: Application) {
                         listAgenda += agenda
                     }
                     InsertAgenda(database!!.agendaDao()).execute(listAgenda)
+                    idHelper++
                 }
             }
 
@@ -110,10 +157,21 @@ class MainRepository(private val application: Application) {
             }
         }
 
-        class InsertSessions(private val dao: SessionsDao) : AsyncTask<List<Sessions>, Void, Void>() {
+        class InsertSessions(private val dao: SessionsDao) :
+            AsyncTask<List<Sessions>, Void, Void>() {
             override fun doInBackground(vararg params: List<Sessions>?): Void? {
                 for (sessions in params[0]!!) {
                     dao.insertSessions(sessions)
+                }
+                return null
+            }
+        }
+
+        class InsertSpeakers(private val dao: SpeakersDao) :
+            AsyncTask<List<Speakers>, Void, Void>() {
+            override fun doInBackground(vararg params: List<Speakers>?): Void? {
+                for (speakers in params[0]!!) {
+                    dao.insertSpeakers(speakers)
                 }
                 return null
             }

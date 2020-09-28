@@ -4,14 +4,15 @@ import java.io.Serializable
 
 class AgendaItemModel(
     val startTime: String?,
-    val endTime: String?,
+    val duration: String?,
     val date: String?,
     val complexity: String?,
     val description: String?,
     val language: String?,
     val presentation: String?,
-    val speakers: List<String>,
+    var speakers: List<String?>,
+    var degree: String?,
     val title: String?,
-    val image: String?
+    var image: String?
 ) : Serializable {
 }

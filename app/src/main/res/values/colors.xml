@@ -6,4 +6,10 @@
     <color name="colorTabIndicator">#F9A825</color>
     <color name="colorCardBackgroundLight">#FFFFFF</color>
     <color name="colorGreen">#2E7D32</color>
+    <color name="googleRed">#ea4335</color>
+    <color name="googleBlue">#4285f4</color>
+    <color name="googleOrange">#fabb04</color>
+    <color name="googleGreen">#0f9d57</color>
+    <color name="textViewBackground">#EFEFEF</color>
+    <color name="textColor">#000000</color>
 </resources>

@@ -19,4 +19,5 @@
     <string name="more">More</string>
     <string name="degree">Example Degree</string>
     <string name="name">Example Name</string>
+    <string name="info">Session info.</string>
 </resources>

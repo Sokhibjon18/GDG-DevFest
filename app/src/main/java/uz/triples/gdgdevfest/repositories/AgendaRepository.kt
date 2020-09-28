@@ -2,11 +2,10 @@ package uz.triples.gdgdevfest.repositories
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import uz.triples.gdgdevfest.database.GDGTashkentDatabase
 import uz.triples.gdgdevfest.database.entities.Agenda
 import uz.triples.gdgdevfest.database.entities.Sessions
+import uz.triples.gdgdevfest.database.entities.Speakers
 
 class AgendaRepository(application: Application) {
 
@@ -17,11 +16,19 @@ class AgendaRepository(application: Application) {
         agendaLiveData = database!!.agendaDao().getAllAgenda()
     }
 
-    fun getAgendaList(): LiveData<List<Agenda>>{
+    fun getAgendaList(): LiveData<List<Agenda>> {
         return agendaLiveData
     }
 
-    suspend fun getSession(session: Int): Sessions {
+    fun getSession(session: Int): Sessions? {
         return database!!.sessionsDao().getSession(session)
+    }
+
+    fun getSpeaker(speaker: String): Speakers? {
+        return database!!.speakersDao().getSpeaker(speaker)
+    }
+
+    fun getSpeakerByName(name: String): Speakers? {
+        return database!!.speakersDao().getSpeakerByName(name)
     }
 }

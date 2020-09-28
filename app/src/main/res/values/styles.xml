@@ -20,6 +20,6 @@
 
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
+        <item name="cornerSize">26%</item>
     </style>
 </resources>

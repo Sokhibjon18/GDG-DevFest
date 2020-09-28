@@ -1,20 +1,26 @@
 package uz.triples.gdgdevfest.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProviders
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_home.*
 import uz.triples.gdgdevfest.R
-import uz.triples.gdgdevfest.viewModels.MainViewModel
+import uz.triples.gdgdevfest.repositories.MainRepository
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var repository: MainRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.updateJson()
+        repository = MainRepository(application)
+
+        repository.updateDatabase()
+    }
+
+    override fun onBackPressed() {
+//        if (fragmentContainer)
+        super.onBackPressed()
     }
 }

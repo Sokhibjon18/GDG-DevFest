@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 class Agenda(
-    @PrimaryKey()
-    val id: String,
+    @PrimaryKey
+    val id: Int,
     val date: String?,
     val endTime: String?,
     val startTime: String?,
