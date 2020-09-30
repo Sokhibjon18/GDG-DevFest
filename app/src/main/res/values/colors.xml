@@ -12,4 +12,5 @@
     <color name="googleGreen">#0f9d57</color>
     <color name="textViewBackground">#EFEFEF</color>
     <color name="textColor">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>

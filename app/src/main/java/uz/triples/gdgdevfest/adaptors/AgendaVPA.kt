@@ -7,7 +7,7 @@ import com.google.gson.Gson
 import uz.triples.gdgdevfest.models.AgendaItemModel
 import uz.triples.gdgdevfest.ui.TabFragment
 
-class AgendaVPAdapter(fm: FragmentManager, private val aList: List<List<AgendaItemModel>>) : FragmentPagerAdapter(fm) {
+class AgendaVPA(fm: FragmentManager, private val aList: List<List<AgendaItemModel>>) : FragmentPagerAdapter(fm) {
 
     override fun getCount(): Int {
         return 4

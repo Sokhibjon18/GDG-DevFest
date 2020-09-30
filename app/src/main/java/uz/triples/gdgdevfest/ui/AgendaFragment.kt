@@ -1,7 +1,6 @@
 package uz.triples.gdgdevfest.ui
 
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -15,14 +14,14 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.triples.gdgdevfest.R
-import uz.triples.gdgdevfest.adaptors.AgendaVPAdapter
+import uz.triples.gdgdevfest.adaptors.AgendaVPA
 import uz.triples.gdgdevfest.models.AgendaItemModel
 import uz.triples.gdgdevfest.models.SessionsModel
 import uz.triples.gdgdevfest.viewModels.AgendaSharedViewModel
 
 class AgendaFragment : Fragment(R.layout.fragment_agenda) {
 
-    private lateinit var pagerAdapter: AgendaVPAdapter
+    private lateinit var pagerAdapter: AgendaVPA
     private lateinit var sharedViewModel: AgendaSharedViewModel
     private val TAG = "AgendaFragment"
     private lateinit var viewPager: ViewPager
@@ -106,7 +105,7 @@ class AgendaFragment : Fragment(R.layout.fragment_agenda) {
                 }
 
                 withContext(Dispatchers.Main) {
-                    pagerAdapter = AgendaVPAdapter(
+                    pagerAdapter = AgendaVPA(
                         requireActivity().supportFragmentManager,
                         listOf(androidList, webList, cloudList, othersList)
                     )

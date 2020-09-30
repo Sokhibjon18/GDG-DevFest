@@ -10,7 +10,7 @@
     <string name="gdg_devfest_ntashkent_2020"><b>GDG</b> DevFest\nTashkent 2020</string>
     <string name="agenda">Agenda</string>
     <string name="speakers">Speakers</string>
-    <string name="team">Team</string>
+    <string name="team">Teams</string>
     <string name="sponsors">Sponsors</string>
     <string name="faq">FAQ</string>
     <string name="locate_us">Locate Us</string>
@@ -20,4 +20,7 @@
     <string name="degree">Example Degree</string>
     <string name="name">Example Name</string>
     <string name="info">Session info.</string>
+    <string name="example">Hello everyone today I\'m here today for smth</string>
+    <string name="members">15 members</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

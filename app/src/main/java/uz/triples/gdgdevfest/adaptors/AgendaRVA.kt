@@ -14,8 +14,8 @@ import uz.triples.gdgdevfest.R
 import uz.triples.gdgdevfest.interfaces.AgendaRVInterface
 import uz.triples.gdgdevfest.models.AgendaItemModel
 
-class AgendaRVAdapter(val context: Context, private val agendaRVInterface: AgendaRVInterface) :
-    ListAdapter<AgendaItemModel, AgendaRVAdapter.ViewHolder>(DiffCallBack()) {
+class AgendaRVA(val context: Context, private val agendaRVInterface: AgendaRVInterface) :
+    ListAdapter<AgendaItemModel, AgendaRVA.ViewHolder>(DiffCallBack()) {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -29,7 +29,10 @@ class AgendaRVAdapter(val context: Context, private val agendaRVInterface: Agend
             newItem: AgendaItemModel
         ): Boolean {
             return oldItem.title == newItem.title ||
-                    oldItem.image == newItem.image
+                    oldItem.image == newItem.image||
+                    oldItem.duration == newItem.duration||
+                    oldItem.speakers == newItem.speakers ||
+                    oldItem.startTime == newItem.startTime
         }
     }
 
@@ -43,11 +46,11 @@ class AgendaRVAdapter(val context: Context, private val agendaRVInterface: Agend
         val view = holder.itemView
         val item = getItem(position)
         view.titleAgendaItem.text = item.title
+        view.cardAgenda.setOnClickListener {
+            agendaRVInterface.getFullInfo(item)
+        }
         if (item.speakers.isNotEmpty()) {
             view.nameAgendaItem.text = item.speakers[0]
-            view.cardAgenda.setOnClickListener {
-                agendaRVInterface.getFullInfo(item)
-            }
         }
         else {
             view.nameAgendaItem.visibility = View.GONE

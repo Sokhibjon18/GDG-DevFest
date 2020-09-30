@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.android.synthetic.main.fragment_agenda_info.*
 import kotlinx.android.synthetic.main.fragment_agenda_info.view.*
 import kotlinx.android.synthetic.main.fragment_tab.*
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +16,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.triples.gdgdevfest.R
-import uz.triples.gdgdevfest.adaptors.AgendaRVAdapter
+import uz.triples.gdgdevfest.adaptors.AgendaRVA
 import uz.triples.gdgdevfest.interfaces.AgendaRVInterface
 import uz.triples.gdgdevfest.models.AgendaItemModel
 import uz.triples.gdgdevfest.viewModels.AgendaSharedViewModel
@@ -26,14 +25,14 @@ class TabFragment : Fragment(R.layout.fragment_tab) {
 
     private val TAG = "TabFragment"
     private var detector: String? = null
-    private lateinit var adaptorRV: AgendaRVAdapter
+    private lateinit var adaptorRV: AgendaRVA
     private lateinit var listAgendaItemModel: List<AgendaItemModel>
     private lateinit var sharedViewModel: AgendaSharedViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adaptorRV = AgendaRVAdapter(requireContext(), object : AgendaRVInterface {
+        adaptorRV = AgendaRVA(requireContext(), object : AgendaRVInterface {
             override fun getFullInfo(agendaItemModel: AgendaItemModel) {
                 GlobalScope.launch {
                     val speaker =
@@ -49,7 +48,7 @@ class TabFragment : Fragment(R.layout.fragment_tab) {
                         dialogView.dateAgendaInfo.text = "Date: ${agendaItemModel.startTime} ${agendaItemModel.date}"
                         dialogView.durationAgendaInfo.text = "Duration: ${agendaItemModel.duration} min."
                         dialogView.complexityAgendaInfo.text = "Complexity: ${agendaItemModel.complexity}"
-                        dialogView.languageAgendaInfo.text = "Complexity: ${agendaItemModel.language}"
+                        dialogView.languageAgendaInfo.text = "Language: ${agendaItemModel.language}"
                         dialogView.closeBtn.setOnClickListener {
                             alertDialog.dismiss()
                         }

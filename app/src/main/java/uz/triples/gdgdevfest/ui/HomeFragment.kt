@@ -16,5 +16,25 @@ class HomeFragment : Fragment(R.layout.fragment_main) {
         agendaCardView.setOnClickListener {
             findNavController().navigate(R.id.agendaFragment)
         }
+
+        speakersCardView.setOnClickListener {
+            findNavController().navigate(R.id.speakersFragment)
+        }
+
+        teamCardView.setOnClickListener {
+            findNavController().navigate(R.id.teamFragment)
+        }
+
+        sponsorsCardView.setOnClickListener {
+            findNavController().navigate(R.id.sponsorFragment)
+        }
+
+        FAQCardView.setOnClickListener {
+            findNavController().navigate(R.id.FAQFragment)
+        }
+
+        locateUsCardView.setOnClickListener {
+            findNavController().navigate(R.id.mapsFragment)
+        }
     }
 }

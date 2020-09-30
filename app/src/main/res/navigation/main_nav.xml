@@ -13,6 +13,24 @@
         <action
             android:id="@+id/action_homeFragment_to_agendaFragment"
             app:destination="@id/agendaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_speakersFragment"
+            app:destination="@id/speakersFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_teamFragment"
+            app:destination="@id/teamFragment" />
+        <action
+            android:id="@+id/action_homeFragment_self"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sponsorFragment"
+            app:destination="@id/sponsorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_FAQFragment"
+            app:destination="@id/FAQFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/agendaFragment"
@@ -28,4 +46,29 @@
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/speakersFragment"
+        android:name="uz.triples.gdgdevfest.ui.SpeakersFragment"
+        android:label="fragment_speakers"
+        tools:layout="@layout/fragment_speakers" />
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="uz.triples.gdgdevfest.ui.TeamFragment"
+        android:label="fragment_team"
+        tools:layout="@layout/fragment_team" />
+    <fragment
+        android:id="@+id/sponsorFragment"
+        android:name="uz.triples.gdgdevfest.ui.SponsorFragment"
+        android:label="fragment_sponsor"
+        tools:layout="@layout/fragment_sponsor" />
+    <fragment
+        android:id="@+id/FAQFragment"
+        android:name="uz.triples.gdgdevfest.ui.FAQFragment"
+        android:label="fragment_f_a_q"
+        tools:layout="@layout/fragment_f_a_q" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="uz.triples.gdgdevfest.ui.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>
