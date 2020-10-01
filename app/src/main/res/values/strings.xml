@@ -23,4 +23,5 @@
     <string name="example">Hello everyone today I\'m here today for smth</string>
     <string name="members">15 members</string>
     <string name="title_activity_maps">Map</string>
+    <string name="location">Location</string>
 </resources>

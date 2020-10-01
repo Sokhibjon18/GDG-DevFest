@@ -1,5 +1,7 @@
 package uz.triples.gdgdevfest.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -9,6 +11,8 @@ import androidx.viewpager.widget.ViewPager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_agenda.*
+import kotlinx.android.synthetic.main.fragment_agenda.shareBtn
+import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -26,11 +30,6 @@ class AgendaFragment : Fragment(R.layout.fragment_agenda) {
     private val TAG = "AgendaFragment"
     private lateinit var viewPager: ViewPager
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -41,6 +40,17 @@ class AgendaFragment : Fragment(R.layout.fragment_agenda) {
             findNavController().popBackStack()
         }
 
+        shareBtn.setOnClickListener {
+            val sharingIntent = Intent(Intent.ACTION_SEND)
+            sharingIntent.type = "text/plain"
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=uz.triples.gdgdevfest")
+            startActivity(Intent.createChooser(sharingIntent, "Share"))
+        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        pagerAdapter = AgendaVPA(childFragmentManager, null)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -106,7 +116,7 @@ class AgendaFragment : Fragment(R.layout.fragment_agenda) {
 
                 withContext(Dispatchers.Main) {
                     pagerAdapter = AgendaVPA(
-                        requireActivity().supportFragmentManager,
+                        childFragmentManager,
                         listOf(androidList, webList, cloudList, othersList)
                     )
 

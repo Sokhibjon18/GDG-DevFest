@@ -71,30 +71,30 @@ class AgendaRVA(val context: Context, private val agendaRVInterface: AgendaRVInt
         when ((0..3).random()) {
             0 -> {
                 view.timeLayout.background = ContextCompat.getDrawable(context, R.color.googleBlue)
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    view.constraintL.backgroundTintList =
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    view.constraintL.foregroundTintList =
                         ContextCompat.getColorStateList(context, R.color.googleBlue)
                 }
             }
             1 -> {
                 view.timeLayout.background = ContextCompat.getDrawable(context, R.color.googleGreen)
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    view.constraintL.backgroundTintList =
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    view.constraintL.foregroundTintList =
                         ContextCompat.getColorStateList(context, R.color.googleGreen)
                 }
             }
             2 -> {
                 view.timeLayout.background =
                     ContextCompat.getDrawable(context, R.color.googleOrange)
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    view.constraintL.backgroundTintList =
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    view.constraintL.foregroundTintList =
                         ContextCompat.getColorStateList(context, R.color.googleOrange)
                 }
             }
             3 -> {
                 view.timeLayout.background = ContextCompat.getDrawable(context, R.color.googleRed)
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    view.constraintL.backgroundTintList =
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    view.constraintL.foregroundTintList =
                         ContextCompat.getColorStateList(context, R.color.googleRed)
                 }
             }

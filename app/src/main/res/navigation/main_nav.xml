@@ -12,25 +12,46 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_homeFragment_to_agendaFragment"
-            app:destination="@id/agendaFragment" />
+            app:destination="@id/agendaFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homeFragment_to_speakersFragment"
-            app:destination="@id/speakersFragment" />
+            app:destination="@id/speakersFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homeFragment_to_teamFragment"
-            app:destination="@id/teamFragment" />
-        <action
-            android:id="@+id/action_homeFragment_self"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/teamFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homeFragment_to_sponsorFragment"
-            app:destination="@id/sponsorFragment" />
+            app:destination="@id/sponsorFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homeFragment_to_FAQFragment"
-            app:destination="@id/FAQFragment" />
+            app:destination="@id/FAQFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homeFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            app:destination="@id/mapsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/agendaFragment"

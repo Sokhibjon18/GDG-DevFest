@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBarAgendaInfo"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/closeBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:src="@drawable/ic_cancel"
+                android:tint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@drawable/ic_cancel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:paddingBottom="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleAgendaInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/welcome_to_devfest_2020"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/speakerImageAgendaInfo"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/speakerImageAgendaInfo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dev_fest_2020"
+                app:layout_constraintDimensionRatio="h, 1"
+                app:layout_constraintStart_toStartOf="@+id/descriptionAgendaInfo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.4"
+                app:shapeAppearanceOverlay="@style/circleImageView" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintAgendaInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/speakerImageAgendaInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/speakerImageAgendaInfo"
+                app:layout_constraintTop_toTopOf="@id/speakerImageAgendaInfo">
+
+                <TextView
+                    android:id="@+id/speakerNameAgendaInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:maxLines="2"
+                    android:text="@string/agenda"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <LinearLayout
+                    android:id="@+id/underlineLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="4dp"
+                    android:background="@color/colorPrimary"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/degreeAgendaInfo"
+                    app:layout_constraintEnd_toEndOf="@+id/speakerNameAgendaInfo"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/speakerNameAgendaInfo"
+                    app:layout_constraintTop_toBottomOf="@id/speakerNameAgendaInfo" />
+
+                <TextView
+                    android:id="@+id/degreeAgendaInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="end"
+                    android:text="@string/example"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/contactLayout"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/speakerNameAgendaInfo" />
+
+                <LinearLayout
+                    android:id="@+id/contactLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="24dp"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/degreeAgendaInfo">
+
+                    <ImageView
+                        android:id="@+id/twitter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_twitter" />
+
+                    <ImageView
+                        android:id="@+id/facebook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_facebook" />
+
+                    <ImageView
+                        android:id="@+id/linkedIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_linkedin" />
+
+                    <ImageView
+                        android:id="@+id/instagram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_instagram" />
+
+                    <ImageView
+                        android:id="@+id/web"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_world_wide_web" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/descriptionAgendaInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/desc"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleAgendaInfo"
+                app:layout_constraintWidth_percent="0.9" />
+
+            <TextView
+                android:id="@+id/dateAgendaInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/text_view_background"
+                android:padding="16dp"
+                android:text="@string/welcome_to_devfest_2020"
+                android:textColor="@color/textColor"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descriptionAgendaInfo" />
+
+            <TextView
+                android:id="@+id/durationAgendaInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/text_view_background"
+                android:padding="16dp"
+                android:text="@string/welcome_to_devfest_2020"
+                android:textColor="@color/textColor"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dateAgendaInfo" />
+
+            <TextView
+                android:id="@+id/complexityAgendaInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/text_view_background"
+                android:padding="16dp"
+                android:text="@string/welcome_to_devfest_2020"
+                android:textColor="@color/textColor"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/durationAgendaInfo" />
+
+            <TextView
+                android:id="@+id/languageAgendaInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/text_view_background"
+                android:padding="16dp"
+                android:text="@string/welcome_to_devfest_2020"
+                android:textColor="@color/textColor"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/complexityAgendaInfo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

@@ -47,6 +47,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/changeTheme"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:padding="10dp"
