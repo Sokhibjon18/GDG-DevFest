@@ -2,7 +2,7 @@ package uz.triples.gdgdevfest.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_home.*
+import androidx.navigation.findNavController
 import uz.triples.gdgdevfest.R
 import uz.triples.gdgdevfest.repositories.MainRepository
 
@@ -20,7 +20,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-//        if (fragmentContainer)
-        super.onBackPressed()
+        val id = findNavController(R.id.fragmentContainer).currentDestination!!.id
+        if (id == R.id.homeFragment || id == R.id.splashFragment)
+            super.onBackPressed()
+        else if (id == R.id.agendaFragment || id == R.id.speakersFragment || id == R.id.teamFragment
+            || id == R.id.sponsorFragment || id == R.id.mapsFragment || id == R.id.FAQFragment){
+            findNavController(R.id.fragmentContainer).popBackStack()
+        }
     }
 }

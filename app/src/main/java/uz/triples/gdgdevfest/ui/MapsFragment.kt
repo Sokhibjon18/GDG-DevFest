@@ -15,7 +15,7 @@ import uz.triples.gdgdevfest.R
 class MapsFragment : Fragment(R.layout.fragment_maps) {
 
     private val callback = OnMapReadyCallback { googleMap ->
-        val sydney = LatLng(41.3381599, 69.327261)
+        val sydney = LatLng(41.3391599, 69.335)
         googleMap.addMarker(MarkerOptions().position(sydney).title("GDG DevFest"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16f))
     }
