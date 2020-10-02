@@ -1,5 +1,5 @@
-# GDG-DevFest
-<p>Safarov Sokhibjon</p>
+# GDG-DevFest All Done
+Safarov Sokhibjon
 <p>GitHub: https://github.com/Sokhibjon18/GDG-DevFest</p>
 <p><br></p>
 <p>GDG DevFest Tashkent 2020</p>
