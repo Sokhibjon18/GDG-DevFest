@@ -1,13 +1,14 @@
 package uz.triples.gdgdevfest.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_maps.*
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_speakers.*
 import kotlinx.android.synthetic.main.fragment_speakers.backButton
 import kotlinx.android.synthetic.main.fragment_speakers.shareBtn
@@ -30,6 +31,14 @@ class SpeakersFragment : Fragment(R.layout.fragment_speakers) {
 
             }
         })
+
+        changeTheme.setOnClickListener {
+            Snackbar.make(
+                requireView(),
+                "We will add this function soon",
+                Snackbar.LENGTH_INDEFINITE
+            ).setDuration(2000).setActionTextColor(Color.WHITE).show()
+        }
 
         shareBtn.setOnClickListener {
             val sharingIntent = Intent(Intent.ACTION_SEND)

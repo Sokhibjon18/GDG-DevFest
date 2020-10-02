@@ -1,6 +1,7 @@
 package uz.triples.gdgdevfest.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +13,9 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import kotlinx.android.synthetic.main.fragment_main.*
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_maps.*
+import kotlinx.android.synthetic.main.fragment_maps.backButton
 import kotlinx.android.synthetic.main.fragment_maps.shareBtn
 import uz.triples.gdgdevfest.R
 
@@ -32,6 +34,14 @@ class MapsFragment : Fragment(R.layout.fragment_maps) {
 
         backButton.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+        changeTheme.setOnClickListener {
+            Snackbar.make(
+                requireView(),
+                "We will add this function soon",
+                Snackbar.LENGTH_INDEFINITE
+            ).setDuration(2000).setActionTextColor(Color.WHITE).show()
         }
 
         shareBtn.setOnClickListener {

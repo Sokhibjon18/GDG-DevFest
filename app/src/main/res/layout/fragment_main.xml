@@ -22,7 +22,8 @@
 
             <ImageView
                 android:id="@+id/logoDevFest"
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
+                android:scaleType="centerCrop"
                 android:layout_height="24dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/dev_fest_logo"
@@ -97,10 +98,13 @@
         app:layout_constraintBottom_toTopOf="@id/buttonsContainer"
         app:layout_constraintTop_toBottomOf="@id/devFest2020">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@android:color/black"
+            android:shadowRadius="1"
+            android:shadowColor="@android:color/black"
             android:text="@string/welcome_to_devfest_2020"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -110,6 +114,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="12dp"
+            android:textColor="@android:color/black"
             android:text="@string/desc"
             android:textSize="12sp"
             android:textStyle="bold" />

@@ -24,4 +24,5 @@
     <string name="members">15 members</string>
     <string name="title_activity_maps">Map</string>
     <string name="location">Location</string>
+    <string name="fa_questions">FA Questions</string>
 </resources>

@@ -1,6 +1,7 @@
 package uz.triples.gdgdevfest.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -8,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlinx.android.synthetic.main.fragment_maps.*
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_team.*
 import kotlinx.android.synthetic.main.fragment_team.backButton
 import kotlinx.android.synthetic.main.fragment_team.shareBtn
@@ -35,6 +36,14 @@ class TeamFragment : Fragment(R.layout.fragment_team) {
 
         backButton.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+        changeTheme.setOnClickListener {
+            Snackbar.make(
+                requireView(),
+                "We will add this function soon",
+                Snackbar.LENGTH_INDEFINITE
+            ).setDuration(2000).setActionTextColor(Color.WHITE).show()
         }
 
         shareBtn.setOnClickListener {

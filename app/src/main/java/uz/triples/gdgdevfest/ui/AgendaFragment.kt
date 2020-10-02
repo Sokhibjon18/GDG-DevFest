@@ -2,17 +2,19 @@ package uz.triples.gdgdevfest.ui
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_agenda.*
 import kotlinx.android.synthetic.main.fragment_agenda.shareBtn
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,6 +40,14 @@ class AgendaFragment : Fragment(R.layout.fragment_agenda) {
 
         backButton.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+        changeTheme.setOnClickListener {
+            Snackbar.make(
+                requireView(),
+                "We will add this function soon",
+                Snackbar.LENGTH_INDEFINITE
+            ).setDuration(2000).setActionTextColor(Color.WHITE).show()
         }
 
         shareBtn.setOnClickListener {
