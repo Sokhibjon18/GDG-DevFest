@@ -29,7 +29,7 @@ Safarov Sokhibjon
 <img src="ReadMeImages/image1(1).png" width=300> 
 </p>
 <p float="left">
-<img src="ReadMeImages/Screenshot_1601701172.png" width=300> 
-<img src="ReadMeImages/Screenshot_1601581486.png" width=300> 
-<img src="ReadMeImages/Screenshot_1601701406.png" width=300> 
+<img src="ReadMeImages/Screenshot_1601701172.png" width=200> 
+<img src="ReadMeImages/Screenshot_1601581486.png" width=200> 
+<img src="ReadMeImages/Screenshot_1601701406.png" width=200> 
 </p>
