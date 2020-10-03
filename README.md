@@ -1,6 +1,6 @@
 # GDG-DevFest All Done
 Safarov Sokhibjon
-<p>GitHub: https://github.com/Sokhibjon18/GDG-DevFest</p>
+<p>GitHub: https://github.com/Sokhibjon18/GDG-DevFest </p>
 <p><br></p>
 <p><b>GDG DevFest Tashkent 2020</b></p>
 <p>Users able to view and click list of functionalities of the app, such as: Agenda, Speakers, GDG team, Sponsors of the event, FAQ, Location of the event.</p>
