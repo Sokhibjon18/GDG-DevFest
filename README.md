@@ -15,7 +15,7 @@ Safarov Sokhibjon
 <p><b>Addisional</b></p>
 <p>Modifications have been made to the design section also to avoid plagiarism</p>
 <p>Used Database in order to allow users to use application without internet connection</p>
-<p>And also size is very small</p>
+<p>All things were done from <b>zero</b></p>
 <p>Temporarily placed in the google play market</p>
 <p>https://play.google.com/store/apps/details?id=uz.triples.gdgdevfest</p>
 <p><br></p>
